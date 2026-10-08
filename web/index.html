@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SAP MM-Inspired Purchase-to-Pay</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<header>
+    <h1>SAP MM-Inspired Purchase-to-Pay System</h1>
+    <nav>
+        <button data-page="dashboard" class="active">Dashboard</button>
+        <button data-page="materials">Materials</button>
+        <button data-page="suppliers">Suppliers</button>
+        <button data-page="requisitions">Purchase Requisitions</button>
+        <button data-page="orders">Purchase Orders</button>
+        <button data-page="receipts">Goods Receipts</button>
+    </nav>
+</header>
+
+<main>
+    <div id="message" class="message" style="display:none"></div>
+
+    <!-- DASHBOARD -->
+    <section id="page-dashboard" class="page active">
+        <h2>Dashboard</h2>
+        <div class="cards">
+            <div class="card"><span id="d-materials">0</span><p>Total Materials</p></div>
+            <div class="card"><span id="d-suppliers">0</span><p>Total Suppliers</p></div>
+            <div class="card"><span id="d-pending-prs">0</span><p>Pending PRs</p></div>
+            <div class="card"><span id="d-open-pos">0</span><p>Open POs</p></div>
+            <div class="card"><span id="d-inventory">0</span><p>Total Inventory Qty</p></div>
+        </div>
+    </section>
+
+    <!-- MATERIALS -->
+    <section id="page-materials" class="page">
+        <h2>Materials</h2>
+        <form id="material-form">
+            <input id="m-name" placeholder="Material name" required>
+            <input id="m-category" placeholder="Category">
+            <input id="m-price" type="number" min="0" step="0.01" placeholder="Unit price (₹)" required>
+            <input id="m-stock" type="number" min="0" step="1" placeholder="Stock quantity">
+            <button type="submit">Add Material</button>
+        </form>
+        <table>
+            <thead><tr><th>ID</th><th>Name</th><th>Category</th><th>Unit Price</th><th>Stock</th></tr></thead>
+            <tbody id="materials-body"></tbody>
+        </table>
+    </section>
+
+    <!-- SUPPLIERS -->
+    <section id="page-suppliers" class="page">
+        <h2>Suppliers</h2>
+        <form id="supplier-form">
+            <input id="s-name" placeholder="Supplier name" required>
+            <input id="s-contact" placeholder="Contact (email / phone)">
+            <button type="submit">Add Supplier</button>
+        </form>
+        <table>
+            <thead><tr><th>ID</th><th>Name</th><th>Contact</th></tr></thead>
+            <tbody id="suppliers-body"></tbody>
+        </table>
+    </section>
+
+    <!-- PURCHASE REQUISITIONS -->
+    <section id="page-requisitions" class="page">
+        <h2>Purchase Requisitions</h2>
+        <form id="pr-form">
+            <input id="pr-department" placeholder="Department (e.g. IT)" required>
+            <select id="pr-material" required></select>
+            <input id="pr-quantity" type="number" min="1" step="1" placeholder="Quantity" required>
+            <button type="submit">Create PR</button>
+        </form>
+        <table>
+            <thead><tr><th>PR ID</th><th>Department</th><th>Material</th><th>Quantity</th><th>Status</th><th>Date</th></tr></thead>
+            <tbody id="pr-body"></tbody>
+        </table>
+    </section>
+
+    <!-- PURCHASE ORDERS -->
+    <section id="page-orders" class="page">
+        <h2>Purchase Orders</h2>
+        <form id="po-form">
+            <select id="po-pr" required></select>
+            <select id="po-supplier" required></select>
+            <button type="submit">Convert to PO</button>
+        </form>
+        <table>
+            <thead>
+            <tr><th>PO ID</th><th>PR ID</th><th>Supplier</th><th>Material</th><th>Quantity</th>
+                <th>Unit Price</th><th>Total Amount</th><th>Received</th><th>Status</th><th>Date</th></tr>
+            </thead>
+            <tbody id="po-body"></tbody>
+        </table>
+    </section>
+
+    <!-- GOODS RECEIPTS -->
+    <section id="page-receipts" class="page">
+        <h2>Goods Receipts</h2>
+        <form id="gr-form">
+            <select id="gr-po" required></select>
+            <input id="gr-quantity" type="number" min="1" step="1" placeholder="Quantity received" required>
+            <button type="submit">Record Receipt</button>
+        </form>
+        <table>
+            <thead><tr><th>GR ID</th><th>PO ID</th><th>Qty Ordered</th><th>Qty Received</th><th>Date</th><th>Status</th></tr></thead>
+            <tbody id="gr-body"></tbody>
+        </table>
+    </section>
+</main>
+
+<script src="js/app.js"></script>
+</body>
+</html>

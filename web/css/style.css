@@ -1,0 +1,89 @@
+* { box-sizing: border-box; }
+
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f4f6f8;
+    color: #222;
+}
+
+header { background: #0b3d6b; color: #fff; padding: 14px 24px; }
+header h1 { margin: 0 0 10px; font-size: 20px; }
+
+nav button {
+    background: transparent;
+    color: #cfe2f3;
+    border: none;
+    padding: 8px 14px;
+    cursor: pointer;
+    font-size: 14px;
+    border-radius: 4px;
+}
+nav button:hover { background: #14568f; }
+nav button.active { background: #fff; color: #0b3d6b; font-weight: bold; }
+
+main { padding: 24px; max-width: 1200px; margin: 0 auto; }
+
+.page { display: none; }
+.page.active { display: block; }
+
+h2 { margin-top: 0; }
+
+form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 16px;
+    background: #fff;
+    padding: 12px;
+    border: 1px solid #d5dbe1;
+    border-radius: 6px;
+}
+
+input, select {
+    padding: 8px;
+    border: 1px solid #b8c1ca;
+    border-radius: 4px;
+    font-size: 14px;
+    min-width: 170px;
+}
+
+form button {
+    padding: 8px 16px;
+    background: #0b3d6b;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+form button:hover { background: #14568f; }
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #fff;
+    border: 1px solid #d5dbe1;
+}
+th, td { padding: 9px 10px; text-align: left; border-bottom: 1px solid #e6eaee; font-size: 14px; }
+th { background: #e8eef4; }
+
+.cards { display: flex; flex-wrap: wrap; gap: 16px; }
+.card {
+    flex: 1 1 180px;
+    background: #fff;
+    border: 1px solid #d5dbe1;
+    border-radius: 6px;
+    padding: 18px;
+    text-align: center;
+}
+.card span { font-size: 32px; font-weight: bold; color: #0b3d6b; }
+.card p { margin: 6px 0 0; color: #555; }
+
+.message { padding: 10px 14px; border-radius: 4px; margin-bottom: 14px; }
+.message.ok { background: #e3f4e6; color: #1d6b2a; border: 1px solid #b7e0bd; }
+.message.error { background: #fbe4e4; color: #9b1c1c; border: 1px solid #f0b9b9; }
+
+.badge { padding: 2px 8px; border-radius: 10px; font-size: 12px; background: #e6eaee; }
+.badge.pending, .badge.ordered { background: #fff3cd; color: #7a5b00; }
+.badge.partiallyreceived, .badge.partial { background: #ffe0b2; color: #8a4b00; }
+.badge.completed, .badge.complete, .badge.converted { background: #d4edda; color: #1d6b2a; }
